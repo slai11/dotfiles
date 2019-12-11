@@ -1,0 +1,36 @@
+[alias]
+    # lg for verbose, l for quick view
+    l = log --pretty=oneline -n 20 --graph --abbrev-commit
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+   
+    # Commit all changes
+    ca = !git add -A && git commit -av
+
+    # abbreviations because im lazy
+    co = checkout
+    d = diff
+    st = status 
+    fp = fetch -p
+    p = pull
+    
+    # color graph log view
+    graph = log --all --decorate --graph --oneline
+
+    # Remove branches that have already been merged with master
+	# a.k.a. ‘delete merged’
+    dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d; git remote -v update -p"
+
+[color "branch"]
+
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+
+	meta = yellow bold
+	frag = magenta bold # line info
+	old = red # deletions
+	new = green # additions
+
