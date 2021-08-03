@@ -56,3 +56,9 @@
 	old = red # deletions
 	new = green # additions
 
+[user]
+	name = sylvester
+	email = sylvester.chin@viki.com
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
