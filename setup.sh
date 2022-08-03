@@ -13,24 +13,12 @@ rm -rf fonts
 # Install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# Install wget
-brew install wget
-brew install ack
-
-
 # Install ruby
 brew install rbenv
 rbenv init
-rbenv install 2.6.6
-rbenv rehash
-gem install bundler -v 1.17.3
-rbenv rehash
-rbenv global 2.6.6
 
 # Install golang
-wget https://golang.org/dl/go1.14.12.darwin-amd64.pkg
-sudo installer -pkg go1.14.12.darwin-amd64.pkg -target /Volumes/Macintosh\ HD
-rm go1.14.12.darwin-amd64.pkg
+# just download from go website
 export GOPROXY="https://proxy.golang.org,direct"
 export GONOPROXY=none
 export GO111MODULE=on
@@ -50,4 +38,4 @@ brew install vim
 brew install neovim --HEAD
 
 # utilities
-brew install tree htop gotop ripgrep fd
+brew install tree htop gotop ripgrep fd bat exa jq xsv
