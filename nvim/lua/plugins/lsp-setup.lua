@@ -59,6 +59,23 @@ return {
       dockerls = {},
       golangci_lint_ls = {},
       gopls = {},
+      jsonnet_ls = {
+        settings = {
+          cmd = {
+    "jsonnet-language-server",
+    "-J",
+    "/Users/sylvesterchin/work/runbooks/libsonnet",
+    "-J",
+    "/Users/sylvesterchin/work/runbooks/vendor",
+    "-J",
+    "/Users/sylvesterchin/work/runbooks/dashboards",
+    "-J",
+    "/Users/sylvesterchin/work/runbooks/services",
+    "-J",
+    "/Users/sylvesterchin/work/runbooks/metrics-catalog",
+  },
+        },
+      },
       jsonls = {
         settings = {
           json = {
@@ -69,41 +86,10 @@ return {
       },
       marksman = {},
       rust_analyzer = {},
-      sumneko_lua = {
-        settings = {
-          Lua = {
-            runtime = {
-              -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-              version = "LuaJIT",
-            },
-            diagnostics = {
-              -- Get the language server to recognize the `vim` global
-              globals = { "vim" },
-              neededFileStatus = {
-                ["codestyle-check"] = "Any",
-              },
-            },
-            workspace = {
-              -- Make the server aware of Neovim runtime files
-              library = vim.api.nvim_get_runtime_file("", true),
-              checkThirdParty = false,
-            },
-            completion = {
-              callSnippet = "Replace",
-            },
-            format = {
-              enable = true,
-              defaultConfig = {
-                indent_style = "space",
-                indent_size = "2",
-                quote_style = "double",
-              },
-            },
-          },
-        },
-      },
       sqlls = {},
+      pyright = {},
       taplo = {},
+      terraformls = {},
       vimls = {},
       yamlls = {
         settings = {

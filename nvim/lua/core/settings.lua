@@ -17,6 +17,7 @@ vim.opt.grepprg    = "rg --vimgrep --smart-case --follow"
 
 vim.g.rubycomplete_buffer_loading = true
 
+
 -- Space as leader key
 vim.g.mapleader = ","
 

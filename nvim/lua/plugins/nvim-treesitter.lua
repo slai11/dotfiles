@@ -39,6 +39,7 @@ return {
         "go",
         "gomod",
         "json",
+        "jsonnet",
         "help",
         "html",
         "lua",
@@ -52,6 +53,7 @@ return {
         "sql",
         "toml",
         "vim",
+        "terraform",
         "yaml"
       },
 

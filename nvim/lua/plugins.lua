@@ -4,17 +4,18 @@ return {
   --### Color
   "shaunsingh/nord.nvim",
   "EdenEast/nightfox.nvim",
+  "shaunsingh/solarized.nvim",
 
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "nordfox",
+      colorscheme = "duskfox",
     },
   },
 
   --### Search
-  "tpope/vim-abolish", -- abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
 
+  "tpope/vim-abolish", -- abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
   "arkav/lualine-lsp-progress", -- LSP Progress lualine component
 
   {
