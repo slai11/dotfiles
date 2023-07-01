@@ -4,7 +4,6 @@ return {
   --### Color
   "shaunsingh/nord.nvim",
   "EdenEast/nightfox.nvim",
-  "shaunsingh/solarized.nvim",
 
   {
     "LazyVim/LazyVim",
@@ -15,6 +14,48 @@ return {
 
   --### Search
 
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
+    keys = {
+      {
+        "s",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
+      {
+        "*",
+        mode = { "n" },
+        function()
+          require("flash").jump({
+            pattern = vim.fn.expand("<cword>"),
+          })
+        end,
+        desc = "Flash current word",
+      },
+      {
+        "S",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
+      },
+      {
+        "<c-s>",
+        mode = { "c" },
+        function()
+          require("flash").toggle()
+        end,
+        desc = "Toggle Flash Search",
+      },
+    },
+  },
   "tpope/vim-abolish", -- abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
   "arkav/lualine-lsp-progress", -- LSP Progress lualine component
 
@@ -33,7 +74,6 @@ return {
 
   --### Editor enhancements
   "junegunn/vim-easy-align", -- 🌻 A Vim alignment plugin
-  "AndrewRadev/splitjoin.vim", -- Switch between single-line and multiline forms of code
   { "tpope/vim-repeat", keys = "." }, -- repeat.vim: enable repeating supported plugin maps with '.'
   {
     "tpope/vim-surround", -- surround.vim: Delete/change/add parentheses/quotes/XML-tags/much more with ease
