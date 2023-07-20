@@ -56,8 +56,8 @@ return {
   config = function()
     local servers = {
       bashls = {},
+      clangd = {},
       dockerls = {},
-      golangci_lint_ls = {},
       gopls = {},
       jsonnet_ls = {
         settings = {

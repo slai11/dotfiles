@@ -1,19 +1,51 @@
 return {
-  --### Key mappings management
-
-  --### Color
-  "shaunsingh/nord.nvim",
   "EdenEast/nightfox.nvim",
-
+  "catppuccin/nvim",
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "duskfox",
+      colorscheme = "catppuccin",
+    },
+  },
+
+  {
+    "akinsho/toggleterm.nvim",
+    config = true,
+    keys = {
+      {
+        "<C-j>",
+        "<cmd>ToggleTerm<cr>",
+        desc = "Toggle floating terminal"
+      }
+    },
+    cmd = "ToggleTerm",
+    opts = {
+      open_mapping = [[<C-j>]]
+    },
+  },
+
+  {
+    "folke/edgy.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.opt.laststatus = 3
+      vim.opt.splitkeep = "screen"
+    end,
+    opts = {
+      bottom = {
+        {
+          ft = "toggleterm",
+          size = { height = 0.3 },
+          -- exclude floating windows
+          filter = function(buf, win)
+            return vim.api.nvim_win_get_config(win).relative == ""
+          end,
+        },
+      },
     },
   },
 
   --### Search
-
   {
     "folke/flash.nvim",
     event = "VeryLazy",
@@ -27,32 +59,6 @@ return {
           require("flash").jump()
         end,
         desc = "Flash",
-      },
-      {
-        "*",
-        mode = { "n" },
-        function()
-          require("flash").jump({
-            pattern = vim.fn.expand("<cword>"),
-          })
-        end,
-        desc = "Flash current word",
-      },
-      {
-        "S",
-        mode = { "n", "o", "x" },
-        function()
-          require("flash").treesitter()
-        end,
-        desc = "Flash Treesitter",
-      },
-      {
-        "<c-s>",
-        mode = { "c" },
-        function()
-          require("flash").toggle()
-        end,
-        desc = "Toggle Flash Search",
       },
     },
   },
@@ -81,6 +87,7 @@ return {
   },
 
   --### Other
+
   "tmux-plugins/vim-tmux", -- Vim plugin for .tmux.conf
   {
     "tpope/vim-dispatch", -- dispatch.vim: Asynchronous build and test dispatcher
