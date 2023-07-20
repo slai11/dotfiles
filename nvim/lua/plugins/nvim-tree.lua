@@ -8,7 +8,7 @@ return {
   event = "VeryLazy",
   dependencies = "kyazdani42/nvim-web-devicons",
   keys = {
-    { "<C-t>", "<Cmd>NvimTreeFindFileToggle<CR>", mode = { "n", "v" }, desc = "Toggle file explorer" }
+    { "<leader>t", "<Cmd>NvimTreeFindFileToggle<CR>", mode = { "n", "v" }, desc = "Toggle file explorer" }
   },
   opts = {
     disable_netrw = false,
@@ -17,7 +17,7 @@ return {
     sort_by = "case_sensitive",
     view = {
       adaptive_size = true,
-      side = "right",
+      side = "left",
     },
     renderer = {
       group_empty = true,
