@@ -16,7 +16,6 @@ return {
     reload_on_bufenter = true,
     sort_by = "case_sensitive",
     view = {
-      adaptive_size = true,
       side = "left",
     },
     renderer = {

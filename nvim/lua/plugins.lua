@@ -13,14 +13,14 @@ return {
     config = true,
     keys = {
       {
-        "<C-j>",
+        "<C-y>",
         "<cmd>ToggleTerm<cr>",
         desc = "Toggle floating terminal"
       }
     },
     cmd = "ToggleTerm",
     opts = {
-      open_mapping = [[<C-j>]]
+      open_mapping = [[<C-y>]]
     },
   },
 
