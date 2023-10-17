@@ -4,7 +4,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "terafox",
     },
   },
 
@@ -76,8 +76,8 @@ return {
   { "hrsh7th/vim-vsnip", lazy = true }, -- Snippet plugin for vim/nvim that supports LSP/VSCode's snippet format.
 
   --### Session management
-  "farmergreg/vim-lastplace", -- Intelligently reopen files at your last edit position in Vim.
 
+  "farmergreg/vim-lastplace", -- Intelligently reopen files at your last edit position in Vim.
   --### Editor enhancements
   "junegunn/vim-easy-align", -- 🌻 A Vim alignment plugin
   { "tpope/vim-repeat", keys = "." }, -- repeat.vim: enable repeating supported plugin maps with '.'

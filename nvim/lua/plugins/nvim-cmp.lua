@@ -3,6 +3,7 @@ return {
   event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-buffer", -- nvim-cmp source for buffer words
+    "hrsh7th/cmp-omni",
     "hrsh7th/cmp-nvim-lsp", -- nvim-cmp source for neovim builtin LSP client
     "hrsh7th/cmp-path", -- nvim-cmp source for path
     "hrsh7th/cmp-vsnip", -- nvim-cmp source for vim-vsnip
@@ -42,6 +43,7 @@ return {
         ["<CR>"]      = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       }),
       sources = cmp.config.sources({
+        { name = "omni" },
         { name = "nvim_lsp" },
         { name = "vsnip" }, -- For vsnip users.
       }, {
