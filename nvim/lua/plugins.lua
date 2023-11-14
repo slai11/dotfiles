@@ -63,7 +63,6 @@ return {
     },
   },
   "tpope/vim-abolish", -- abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
-  "arkav/lualine-lsp-progress", -- LSP Progress lualine component
 
   {
     "max397574/better-escape.nvim",
