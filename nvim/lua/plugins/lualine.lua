@@ -12,8 +12,6 @@ return {
   opts = {
     options = {
       icons_enabled = true,
-      ignore_focus = { "lazy", "neotest-summary", "Outline", "Trouble" },
-      disabled_filetypes = { "lazy", "neotest-summary", "Outline", "Trouble" },
       globalstatus = true,
       theme = "nord",
     },

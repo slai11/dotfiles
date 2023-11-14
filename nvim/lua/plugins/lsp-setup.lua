@@ -85,6 +85,7 @@ return {
         },
       },
       marksman = {},
+      ruby_ls = {},
       rust_analyzer = {},
       sqlls = {},
       pyright = {},
