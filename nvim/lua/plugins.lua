@@ -1,29 +1,13 @@
 return {
-  "EdenEast/nightfox.nvim",
   "catppuccin/nvim",
+  "rebelot/kanagawa.nvim",
+  "EdenEast/nightfox.nvim",
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "terafox",
+      colorscheme = "kanagawa-wave",
     },
   },
-
-  {
-    "akinsho/toggleterm.nvim",
-    config = true,
-    keys = {
-      {
-        "<C-y>",
-        "<cmd>ToggleTerm<cr>",
-        desc = "Toggle floating terminal"
-      }
-    },
-    cmd = "ToggleTerm",
-    opts = {
-      open_mapping = [[<C-y>]]
-    },
-  },
-
   {
     "folke/edgy.nvim",
     event = "VeryLazy",
@@ -31,18 +15,6 @@ return {
       vim.opt.laststatus = 3
       vim.opt.splitkeep = "screen"
     end,
-    opts = {
-      bottom = {
-        {
-          ft = "toggleterm",
-          size = { height = 0.3 },
-          -- exclude floating windows
-          filter = function(buf, win)
-            return vim.api.nvim_win_get_config(win).relative == ""
-          end,
-        },
-      },
-    },
   },
 
   --### Search
@@ -50,7 +22,14 @@ return {
     "folke/flash.nvim",
     event = "VeryLazy",
     ---@type Flash.Config
-    opts = {},
+    opts = {
+      search = {
+				forward = true,
+				multi_window = false,
+				wrap = false,
+				incremental = true,
+			},
+    },
     keys = {
       {
         "s",
@@ -86,6 +65,37 @@ return {
   },
 
   --### Other
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+      }
+  },
+  {
+		"akinsho/bufferline.nvim",
+		event = "VeryLazy",
+		keys = {
+			{ "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
+			{ "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
+		},
+		opts = {
+			options = {
+				mode = "tabs",
+				-- separator_style = "slant",
+				show_buffer_close_icons = false,
+				show_close_icon = false,
+			},
+		},
+	},
 
   "tmux-plugins/vim-tmux", -- Vim plugin for .tmux.conf
   {

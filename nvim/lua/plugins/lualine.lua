@@ -13,7 +13,7 @@ return {
     options = {
       icons_enabled = true,
       globalstatus = true,
-      theme = "nord",
+      theme = "gruvbox",
     },
 
     extensions = {

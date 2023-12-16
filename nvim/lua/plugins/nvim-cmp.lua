@@ -16,7 +16,7 @@ return {
     }
   },
   config = function()
-    vim.o.completeopt = "menu,menuone,noselect"
+    vim.o.completeopt = "menu,menuone"
 
     -- Set up nvim-cmp.
     local cmp = require("cmp")

@@ -5,7 +5,7 @@ return {
     config = function()
       require('gitlab').setup({
         statusline = {
-          enabled = false,
+          enabled = true,
         },
       })
     end,

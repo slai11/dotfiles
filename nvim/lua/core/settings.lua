@@ -46,3 +46,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = save_fmt_augroup,
   command = ":%s/\\s\\+$//e" -- remove trailing whitespace on save (Mastering Vim Quickly)
 })
+
+vim.lsp.set_log_level("debug")
