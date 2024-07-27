@@ -1,15 +1,15 @@
 return {
-  {
-    url = "https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim.git",
-    lazy = false,
-    config = function()
-      require("gitlab").setup({
-        statusline = {
-          enabled = true,
-        },
-      })
-    end,
-  },
+  --{
+  --  url = "https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim.git",
+  --  lazy = false,
+  --  config = function()
+  --    require("gitlab").setup({
+  --      statusline = {
+  --        enabled = true,
+  --      },
+  --    })
+  --  end,
+  --},
 
   -- Use <tab> for completion and snippets (supertab)
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip

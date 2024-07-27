@@ -13,6 +13,8 @@ return {
         gopls = {},
         pyright = {},
         ruby_ls = {},
+        jsonnet_ls = {},
+        terraformls = {},
       },
     },
   },
