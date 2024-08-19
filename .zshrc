@@ -113,8 +113,31 @@ alias vf='nvim $(fzf)'
 
 eval "$(goto-rs init)"
 
-[[ -s "/Users/sylvester.chin/.gvm/scripts/gvm" ]] && source "/Users/sylvester.chin/.gvm/scripts/gvm"
-export PATH="/usr/local/opt/bzip2/bin:$PATH"
+gch() {
+  local branch=$(git branch --sort=-committerdate|grep -v remotes/|fzf|sed 's#^[ *]*##')
+  git checkout "$branch"
+}
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# Added by GDK bootstrap
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+
+eval "$(/opt/homebrew/bin/mise activate zsh)"
+
+alias gg='git grep'
+alias gfm='git fetch -p && git merge'
+alias gcm='git checkout $(git_main_branch)'
+
+git_main_branch() {
+  command git rev-parse --git-dir &>/dev/null || return
+  local ref
+  for ref in refs/{heads,remotes/{origin,upstream}}/{main,trunk,mainline,default,stable,master}; do
+    if command git show-ref -q --verify $ref; then
+      echo ${ref:t}
+      return 0
+    fi
+  done
+
+  # If no main branch was found, fall back to master but return error
+  echo master
+  return 1
+}
