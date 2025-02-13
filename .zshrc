@@ -105,10 +105,7 @@ export LC_ALL=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias chromemem="ps -ev | grep -i chrome | awk '{print \$12}' | awk '{for(i=1;i<=NF;i++)s+=\$i}END{print s}'"
-alias graph="git graph"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias rc="bundle exec rails c"
 alias vf='nvim $(fzf)'
 
 eval "$(goto-rs init)"
