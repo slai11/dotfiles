@@ -42,15 +42,12 @@
     # (better for interactive use)
     stat = !git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")
 
-
 [color "branch"]
-
 	current = yellow reverse
 	local = yellow
 	remote = green
 
 [color "diff"]
-
 	meta = yellow bold
 	frag = magenta bold # line info
 	old = red # deletions
@@ -58,7 +55,38 @@
 
 [user]
 	name = sylvester
-	email = sylvester.chin@viki.com
+	email = sylvesterchin@proton.me
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+
+[core]
+	editor = nvim
+
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
+
+[help]
+  autocorrect = prompt
+
+[commit]
+  verbose = true
+
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
+
+[column]
+  ui = auto
+
+[branch]
+  sort = -committerdate
