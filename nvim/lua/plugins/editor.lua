@@ -1,14 +1,65 @@
 return {
   {
     "folke/flash.nvim",
-    enable = false,
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      {
+        "s",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
+      {
+        "S",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
+      },
+      {
+        "r",
+        mode = "o",
+        function()
+          require("flash").remote()
+        end,
+        desc = "Remote Flash",
+      },
+      {
+        "R",
+        mode = { "o", "x" },
+        function()
+          require("flash").treesitter_search()
+        end,
+        desc = "Treesitter Search",
+      },
+      {
+        "<c-s>",
+        mode = { "c" },
+        function()
+          require("flash").toggle()
+        end,
+        desc = "Toggle Flash Search",
+      },
+    },
   },
-
   {
     "max397574/better-escape.nvim",
     config = function()
       require("better_escape").setup()
     end,
+  },
+
+  -- highlight and search for todo comments (TODO, FIX, HACK, etc.)
+  -- ships with LazyVim; spec'd here to keep config explicit
+  {
+    "folke/todo-comments.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
   },
 
   -- change some telescope options and a keymap to browse plugin files
@@ -49,10 +100,7 @@ return {
       },
     },
     event = "BufWinEnter",
-    build = function()
-      local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-      ts_update()
-    end,
+    build = ":TSUpdate",
     opts = {
       ensure_installed = {
         "bash",
@@ -65,7 +113,6 @@ return {
         "gomod",
         "json",
         "jsonnet",
-        "help",
         "html",
         "lua",
         "make",
@@ -73,8 +120,8 @@ return {
         "markdown_inline",
         "python",
         "regex",
-        "ruby",
         "rust",
+        "solidity",
         "sql",
         "toml",
         "vim",
@@ -82,28 +129,5 @@ return {
         "yaml",
       },
     },
-    config = function(plugin, opts)
-      if plugin.ensure_installed then
-        require("lazyvim.util").deprecate("treesitter.ensure_installed", "treesitter.opts.ensure_installed")
-      end
-      require("nvim-treesitter.configs").setup(opts)
-
-      local opt = vim.opt
-
-      opt.foldenable = false -- Disable folding at startup.
-      -- vim.opt.foldmethod = "expr"
-      -- vim.opt.foldexpr   = "nvim_treesitter#foldexpr()"
-      ---WORKAROUND
-      vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
-        group = vim.api.nvim_create_augroup("TS_FOLD_WORKAROUND", {}),
-        callback = function()
-          if vim.bo.filetype ~= "home-assistant" then
-            vim.opt.foldmethod = "expr"
-            vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-          end
-        end,
-      })
-      ---ENDWORKAROUND
-    end,
   },
 }

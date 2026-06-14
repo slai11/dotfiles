@@ -1,13 +1,6 @@
 return {
   -- add symbols-outline
   {
-    "simrat39/symbols-outline.nvim",
-    cmd = "SymbolsOutline",
-    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-    config = true,
-  },
-
-  {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     dependencies = { "kyazdani42/nvim-web-devicons" },
@@ -36,6 +29,16 @@ return {
             shorting_target = 80,
           },
         },
+      },
+    },
+  },
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
       },
     },
   },

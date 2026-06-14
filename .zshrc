@@ -108,8 +108,6 @@ export LC_ALL=en_US.UTF-8
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias vf='nvim $(fzf)'
 
-eval "$(goto-rs init)"
-
 gch() {
   local branch=$(git branch --sort=-committerdate|grep -v remotes/|fzf|sed 's#^[ *]*##')
   git checkout "$branch"
@@ -117,8 +115,6 @@ gch() {
 
 # Added by GDK bootstrap
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-
-eval "$(/opt/homebrew/bin/mise activate zsh)"
 
 alias gg='git grep'
 alias gfm='git fetch -p && git merge'
